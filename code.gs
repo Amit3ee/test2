@@ -26,7 +26,7 @@ const GEMINI_API_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/mo
  */
 function doGet(e) {
   try {
-      return HtmlService.createTemplateFromFile('index').evaluate()
+      return HtmlService.createTemplateFromFile('src/index').evaluate()
         .setTitle('Automated Trading Signals')
         .addMetaTag('viewport', 'width=device-width, initial-scale=1.0')
         .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
@@ -40,7 +40,7 @@ function doGet(e) {
  * Includes HTML content from another file. Used for templates.
  */
 function include(filename) {
-  return HtmlService.createHtmlOutputFromFile(filename).getContent();
+  return HtmlService.createHtmlOutputFromFile('src/' + filename).getContent();
 }
 
 /**
