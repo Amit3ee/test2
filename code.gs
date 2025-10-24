@@ -370,7 +370,7 @@ function getSignalsForDate(dateStr) {
  * @return {object} Object with { analysis: "..." } or { error: "..." }.
  */
 function analyzeSignalWithGemini(symbol, ind1Reason, ind2Reasons) {
-  if (GEMINI_API_KEY === "AIzaSyDn-2gPqYT7mxXo0_RSOdajXaJpRHouERg") {
+  if (GEMINI_API_KEY === "YOUR_GEMINI_API_KEY") {
     return { error: "Gemini API Key not configured in code.gs." };
   }
   try {
