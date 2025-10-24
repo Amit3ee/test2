@@ -534,7 +534,7 @@ For developers working with this project:
 ## 📞 Support
 
 For questions or issues:
-- **Email**: amit3ree@gmail.com
+- **Email**: See ADMIN_EMAIL in code.gs configuration
 - **Documentation**: See README.md, DEPLOYMENT.md, GEMINI_SETUP.md
 - **Logs**: Check Apps Script logs and DebugLogs sheet
 
