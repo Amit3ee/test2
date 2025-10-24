@@ -1392,12 +1392,17 @@
              container.innerHTML = signals.map(signal => {
                  const latestReason = signal.ind2Reasons[0] || {};
                  const oldReasons = signal.ind2Reasons.slice(1);
+                 const syncEventsJson = JSON.stringify(signal.ind2Reasons).replace(/"/g, '&quot;');
                  return `<div class="signal-card material material-regular interactive" onclick="showDashboardSyncDetail('${signal.symbol}')">
                             <h3 class="symbol-name">${signal.symbol}</h3>
                             <p class="text-sm text-secondary mb-3">Trigger: ${signal.ind1Reason}</p>
                             <div class="flex justify-between items-center mb-2"> <span class="font-semibold text-green-500">Latest Sync:</span> <span class="text-sm text-secondary">${latestReason.time || ''}</span> </div>
                             <p class="text-sm font-semibold mb-3">${latestReason.reason || 'N/A'}</p>
                             ${oldReasons.length > 0 ? `<p class="text-xs text-secondary mb-1">Previous Syncs:</p>${oldReasons.map(r => `<p class="text-xs text-secondary" style="opacity: 0.7;">- ${r.reason}</p>`).join('')}` : ''}
+                            <button class="analyze-signal-btn" onclick="event.stopPropagation(); analyzeSignal('${signal.symbol}', '${signal.ind1Reason}', ${syncEventsJson})">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                                Ask Gemini
+                            </button>
                         </div>`;
               }).join('');
         }
